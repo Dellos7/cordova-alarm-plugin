@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.dellos7.cordova.alarmplugin" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>CordovaAlarmPlugin</name>
+    <js-module name="CordovaAlarmPlugin" src="www/CordovaAlarmPlugin.js">
+        <clobbers target="cordova.plugins.CordovaAlarmPlugin" />
+    </js-module>
+    
+    <platform name="android">
+    
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="CordovaAlarmPlugin">
+                <param name="android-package" value="com.dellos7.cordova.alarmplugin.CordovaAlarmPlugin" />
+            </feature>
+        </config-file>
+        
+        <config-file parent="/manifest/application" target="AndroidManifest.xml">
+            <activity android:label="New Activity" android:name="com.dellos7.cordova.alarmplugin.NewActivity">
+            </activity>
+        </config-file>
+
+        <config-file parent="/*" target="AndroidManifest.xml">
+        </config-file>
+        
+        <source-file src="src/android/CordovaAlarmPlugin.java" target-dir="src/com/dellos7/cordova/alarmplugin" />
+        <source-file src="src/android/NewActivity.java" target-dir="src/com/dellos7/cordova/alarmplugin" />
+        <source-file src="src/android/activity_new.xml" target-dir="res/layout" />
+    </platform>
+    
+</plugin>
